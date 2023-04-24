@@ -16,7 +16,7 @@ const { check, validationResult } = require("express-validator");
 const { values, isLength, get, find, result } = require("lodash");
 
 // Helps you connect to the file path Views. 
-const tempelatePath = path.join(__dirname, 'Views');
+const tempelatePath = path.join(__dirname, '/Views');
 // const urlencodedParser = bodyParser.urlencoded({ extended: true });            // Parsing Incoming Data.
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }))
@@ -32,7 +32,7 @@ app.use(sessions({
     store: new memorystore({
         checkPeriod: 86400000 // prune expired entries every 24h
     }),
-    resave: false,
+    resave: true,
     secret: "itismysecretasdfasdfqwrtqwgvzasdfgsad",
     saveUninitialized: true,
     // cookie: { maxAge: oneDay },
