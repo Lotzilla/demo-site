@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const express = require('express');
 const cookieParser = require("cookie-parser");
 const sessions = require("express-session");
-const MemoryStore = require('memorystore')(sessions)
+const memorystore = require('memorystore')(sessions)
 const app = express();
 
 
@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, "public")))                     // T
 const oneDay = 1000 * 60 * 60 * 24;
 app.use(sessions({
     cookie: { maxAge: 86400000 },
-    store: new MemoryStore({
+    store: new memorystore({
         checkPeriod: 86400000 // prune expired entries every 24h
     }),
     resave: false,
