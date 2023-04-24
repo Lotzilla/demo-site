@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }))
 app.set('view engine', 'ejs')
 // Without this we cannot access the files in Views.
-app.set("Views");
+// app.set("Views");
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")))                     // Telling express that the public dir has all of our assets.   
 
