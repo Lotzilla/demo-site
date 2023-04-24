@@ -4,6 +4,7 @@ const express = require('express');
 const cookieParser = require("cookie-parser");
 const sessions = require("express-session");
 const memorystore = require('memorystore')(sessions)
+var router = express.Router();
 const app = express();
 
 
@@ -62,6 +63,19 @@ app.get('/sell', (req, res) => {
 app.get('/compentency', (req, res) => {
     res.render("compentency")
 })
+router.route('/')
+    // fetch all users
+    .get(function (req, res) {
+        console.log('get method');
+        if (req.session.logged) {
+            res.render('/home');
+        }
+        else {
+            res.redirect('/login');
+        }
+
+    });
+module.exports = router;
 // The code that allows you to register a persons details and the saves the data to mongoDB.
 app.post("/register", [
     check('name', 'The name must be 3+ characters long')
