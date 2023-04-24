@@ -132,6 +132,4 @@ app.get("/logout", (req, res) => {
 })
 
 // The port to connect to https://localhost:8080.
-app.listen(8080, () => {
-    console.log("port connected")
-})
+app.listen(process.env.PORT || 8080)
