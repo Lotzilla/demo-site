@@ -7,7 +7,7 @@ const app = express();
 
 
 // Body- parser helps you access req.body from within routes and will use that data.
-const bodyParser = require("body-Parser")
+// const bodyParser = require("body-Parser")
 const path = require("path");                                                       // It helps you work with directories and file path,
 const ejs = require("ejs");
 const { check, validationResult } = require("express-validator");
@@ -15,7 +15,7 @@ const { values, isLength, get, find, result } = require("lodash");
 
 // Helps you connect to the file path Views. 
 const tempelatePath = path.join(__dirname, 'Views');
-const urlencodedParser = bodyParser.urlencoded({ extended: true });            // Parsing Incoming Data.
+// const urlencodedParser = bodyParser.urlencoded({ extended: true });            // Parsing Incoming Data.
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }))
 app.set('view engine', 'ejs')
@@ -57,7 +57,7 @@ app.get('/compentency', (req, res) => {
     res.render("compentency")
 })
 // The code that allows you to register a persons details and the saves the data to mongoDB.
-app.post("/register", urlencodedParser, [
+app.post("/register", [
     check('name', 'The name must be 3+ characters long')
         .exists()
         .isLength({ min: 3 }),
