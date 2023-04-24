@@ -4,7 +4,6 @@ const express = require('express');
 const cookieParser = require("cookie-parser");
 const sessions = require("express-session");
 const memorystore = require('memorystore')(sessions)
-var router = express.Router();
 const app = express();
 
 
@@ -22,7 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }))
 app.set('view engine', 'ejs')
 // Without this we cannot access the files in Views.
-// app.set("Views");
+app.set("Views");
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")))                     // Telling express that the public dir has all of our assets.   
 
@@ -36,11 +35,10 @@ app.use(sessions({
     secret: "itismysecretasdfasdfqwrtqwgvzasdfgsad",
     saveUninitialized: true,
     // cookie: { maxAge: oneDay },
-    resave: false
 }))
 let session;
 // Directs you to the home page(starting page).
-app.get('/home', (req, res) => {
+app.get('/', (req, res) => {
     res.render("home");
 })
 // Login directs you to the login page.
@@ -63,19 +61,6 @@ app.get('/sell', (req, res) => {
 app.get('/compentency', (req, res) => {
     res.render("compentency")
 })
-router.route('/')
-    // fetch all users
-    .get(function (req, res) {
-        console.log('get method');
-        if (req.session.logged) {
-            res.render('/home');
-        }
-        else {
-            res.redirect('/login');
-        }
-
-    });
-module.exports = router;
 // The code that allows you to register a persons details and the saves the data to mongoDB.
 app.post("/register", [
     check('name', 'The name must be 3+ characters long')
@@ -152,4 +137,4 @@ app.get("/logout", (req, res) => {
 })
 
 // The port to connect to https://localhost:8080.
-app.listen(process.env.PORT || 8080)
+app.listen(8080)
