@@ -38,7 +38,7 @@ app.use(sessions({
 }))
 let session;
 // Directs you to the home page(starting page).
-app.get('/', (req, res) => {
+app.get('/home', (req, res) => {
     res.render("home");
 })
 // Login directs you to the login page.
@@ -110,7 +110,7 @@ app.post("/login", async (req, res) => {
             session.userid = req.body.name;
             console.log("Session has been Created")
             console.log(req.session)
-            res.render("userProf")
+            res.render("home")
         }
         else if (check.password !== req.body.password) {
             res.send("Incorrect Password");
