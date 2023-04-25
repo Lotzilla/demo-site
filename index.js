@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const express = require('express');
 const cookieParser = require("cookie-parser");
 const sessions = require("express-session");
+var serveStatic = require('serve-static')
 const memorystore = require('memorystore')(sessions)
 const app = express();
 
@@ -15,13 +16,13 @@ const { check, validationResult } = require("express-validator");
 const { values, isLength, get, find, result } = require("lodash");
 
 // Helps you connect to the file path Views. 
-const tempelatePath = path.join(__dirname, 'View');
+const tempelatePath = path.join(__dirname, 'Views');
 // const urlencodedParser = bodyParser.urlencoded({ extended: true });            // Parsing Incoming Data.
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }))
 app.set('view engine', 'ejs')
 // Without this we cannot access the files in Views.
-app.set("View");
+app.set("Views", path.join(__dirname, '../Views'));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")))                     // Telling express that the public dir has all of our assets.   
 
@@ -136,5 +137,7 @@ app.get("/logout", (req, res) => {
 
 })
 
+const https = require('https');
+const index = require('./index')
 // The port to connect to https://localhost:8080.
 app.listen(8080)
