@@ -38,7 +38,7 @@ app.use(sessions({
 }))
 let session;
 // Directs you to the home page(starting page).
-app.get('/home', (req, res) => {
+app.get('/', (req, res) => {
     res.render("home");
 })
 // Login directs you to the login page.
