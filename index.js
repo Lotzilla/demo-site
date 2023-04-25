@@ -15,13 +15,13 @@ const { check, validationResult } = require("express-validator");
 const { values, isLength, get, find, result } = require("lodash");
 
 // Helps you connect to the file path Views. 
-const tempelatePath = path.join(__dirname, 'Views');
+const tempelatePath = path.join(__dirname, 'View');
 // const urlencodedParser = bodyParser.urlencoded({ extended: true });            // Parsing Incoming Data.
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }))
 app.set('view engine', 'ejs')
 // Without this we cannot access the files in Views.
-app.set("Views");
+app.set("View");
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")))                     // Telling express that the public dir has all of our assets.   
 
