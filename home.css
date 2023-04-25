@@ -1,0 +1,322 @@
+body {
+    margin: 0;
+    width: 100%;
+}
+
+.seconderow {
+
+    margin-top: 250px;
+    margin-bottom: 40px;
+    height: 300px;
+}
+
+.nav_bar {
+    position: relative;
+    max-width: 100%;
+    height: 48px;
+    background: #1E2128FF;
+    /* neutral-800 */
+
+}
+
+.header_img {
+    top: 47px;
+    max-width: 100%;
+    height: 400px;
+}
+
+.box {
+    position: absolute;
+    top: 47%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 873px;
+    height: 351px;
+    background: #DEE1E6FF;
+    box-shadow: 0px 4px 9px #171a1f, 0px 0px 2px #171a1f;
+    margin: 0px;
+}
+
+.Variant {
+    position: absolute;
+    top: 124px;
+    left: 16px;
+    opacity: 1;
+    width: 836px;
+    height: 36px;
+}
+
+.search {
+    position: absolute;
+    top: 180px;
+    left: 16px;
+    font-family: Open Sans;
+    /* Body */
+    font-size: 14px;
+    line-height: 22px;
+    color: #171A1FFF;
+    /* neutral-900 */
+}
+
+.min {
+    position: absolute;
+    top: 214px;
+    left: 16px;
+    opacity: 1;
+    width: 408px;
+    height: 34px;
+
+
+}
+
+.max {
+    position: absolute;
+    top: 214px;
+    left: 444px;
+    opacity: 1;
+    width: 408px;
+    height: 34px;
+}
+
+.Handguns {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 200px;
+    height: 41px;
+}
+
+.Hunting {
+    position: absolute;
+    top: 0px;
+    left: 216px;
+    width: 200px;
+    height: 41px;
+}
+
+.Shotguns {
+    position: absolute;
+    top: 0px;
+    left: 437px;
+    width: 200px;
+    height: 41px;
+}
+
+.Semi {
+    position: absolute;
+    top: 0px;
+    left: 657px;
+    width: 200px;
+    height: 41px;
+}
+
+.head-text {
+    position: absolute;
+    top: 67px;
+    left: 235px;
+    font-family: Montserrat;
+    /* Heading */
+    font-size: 24px;
+    line-height: 36px;
+    color: #262020FF;
+    /* primary-500 */
+}
+
+.searchFire {
+    position: absolute;
+    top: 279px;
+    left: 17px;
+    width: 835px;
+    height: 51px;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Open Sans;
+    /* Body */
+    font-size: 14px;
+    line-height: 22px;
+    color: #FFFFFFFF;
+    /* white */
+    background: #B61E10FF;
+    /* secondary-500 */
+    /* opacity: 1;
+    border: none;
+    border-radius: 4px; */
+    /* border-m */
+    box-shadow: 0px 2px 5px #171a1f, 0px 0px 2px #171a1f;
+    /* shadow-s */
+}
+
+.searchFire:hover {
+    color: #FFFFFFFF;
+    /* white */
+    background: #97190DFF;
+    /* secondary-600 */
+}
+
+.searchFire:hover:active {
+    color: #FFFFFFFF;
+    /* white */
+    background: #77130AFF;
+    /* secondary-700 */
+}
+
+.third-row {
+    top: 875px;
+    left: 0px;
+    width: 100%;
+    height: 361px;
+    background: #DEE1E6FF;
+    /* neutral-300 */
+    border-radius: 4px;
+}
+
+.buySell {
+    text-align: center;
+    margin: 50px;
+}
+
+
+.fourthrow {
+    margin: 50px;
+    height: 300px;
+}
+
+.reviews {
+    top: 0px;
+    left: 550px;
+    width: 105px;
+    font-family: Montserrat;
+    font-size: 24px;
+    line-height: 36px;
+    color: #424856FF;
+}
+
+.checked {
+    color: orange;
+}
+
+.par1 {
+    margin: 50px;
+    width: 776px;
+    text-align: left;
+}
+
+.Trusted {
+    top: 1697px;
+    left: 147px;
+    width: 100%;
+    height: 196px;
+    align-items: center;
+}
+
+li a:hover {
+    background-color: grey;
+}
+
+.header {
+    background-color: black !important;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
+
+
+.text-size {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+}
+
+a:link {
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:visited {
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:hover {
+    color: lightblue;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+footer {
+    top: 1993px;
+    left: 0px;
+    width: 100%;
+    height: 365px;
+    background: #DEE1E6FF;
+    /* neutral-300 */
+    border-radius: 0px;
+}
+
+.footer-logo {
+    text-align: left;
+    margin-top: 96px;
+    left: 153px;
+    width: 138px;
+    height: 68px;
+    font-weight: bold;
+    font-family: Montserrat;
+    /* Heading */
+    font-size: 40px;
+    line-height: 56px;
+    /* neutral-700 */
+}
+
+.footer-Prod {
+    text-align: left;
+    margin-top: 96px;
+    left: 371px;
+}
+
+.footer-Res {
+    text-align: left;
+    margin-top: 120px;
+    left: 543px;
+}
+
+.footer-Com {
+    text-align: left;
+    margin-top: 96px;
+    left: 735px;
+}
+
+.footer-Comp {
+    text-align: left;
+    margin-top: 96px;
+    left: 943px;
+}
+
+.footer-Sup {
+    text-align: left;
+    margin-top: 96px;
+    left: 1123px;
+}
+
+.footer-text {
+    text-align: left;
+    font-family: Open Sans;
+    /* Body */
+    font-size: 16px;
+    line-height: 26px;
+    color: #171A1FFF;
+    /* neutral-900 */
+}
+
+.text-size {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+}
