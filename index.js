@@ -36,32 +36,41 @@ app.use(sessions({
     secret: "itismysecretasdfasdfqwrtqwgvzasdfgsad",
     saveUninitialized: true,
     // cookie: { maxAge: oneDay },
-}))
+}));
 let session;
 // Directs you to the home page(starting page).
 app.get('/', (req, res) => {
     res.render("home");
-})
+});
 // Login directs you to the login page.
 app.get('/login', (req, res) => {
     res.render("login");
-})
+});
 // Directs you to the /register page. 
 app.get('/register', (req, res) => {
     res.render("register");
-})
+});
 //Buy Firearm page
 app.get('/buy', (req, res) => {
-    res.render("buy")
-})
+    res.render("buy");
+});
+app.get('/rifle', (req, res) => {
+    res.render('rifle');
+});
+app.get('/shotgun', (req, res) => {
+    res.render('shotgun');
+});
+app.get('/semi', (req, res) => {
+    res.render('semi');
+});
 //Sell Firearm page
 app.get('/sell', (req, res) => {
     res.render("sell")
-})
+});
 //Get compentency page
 app.get('/compentency', (req, res) => {
     res.render("compentency")
-})
+});
 // The code that allows you to register a persons details and the saves the data to mongoDB.
 app.post("/register", [
     check('name', 'The name must be 3+ characters long')
