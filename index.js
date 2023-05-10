@@ -6,7 +6,9 @@ const sessions = require("express-session");
 var serveStatic = require('serve-static')
 const memorystore = require('memorystore')(sessions)
 const app = express();
-
+module.exports = {
+    mode: 'development',
+};
 
 // Body- parser helps you access req.body from within routes and will use that data.
 // const bodyParser = require("body-Parser")
@@ -146,7 +148,11 @@ app.get("/logout", (req, res) => {
 
 })
 
-const https = require('https');
+const http = require('https');
 const index = require('./index')
+
+const port = process.env.PORT || 8080;
+const server = http.createServer(index);
+
 // The port to connect to https://localhost:8080.
 app.listen(8080)
