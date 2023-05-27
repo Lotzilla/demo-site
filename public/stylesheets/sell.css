@@ -1,20 +1,36 @@
 body {
-    background-image: url("/Assets/Image 20 (2).png");
+    background-image: url("/Assets/Image 20 (3).png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    height: 1100px;
+    height: 1400px;
     /* neutral-800 */
     border-radius: 0px;
 }
 
-.box {
+/* .nav_bar {
     position: relative;
-    top: 225px;
+    max-width: 110%;
+    height: 48px;
+    background: #1E2128FF;
+
+} */
+
+.center {
+    position: relative;
+}
+
+.link {
+    text-align: center;
+}
+
+.box {
+    position: absolute;
+    top: 300px;
     left: 35%;
     width: 538px;
-    height: 459px;
+    height: 639px;
     background: #FFFFFFFF;
     /* white */
     border-radius: 4px;
@@ -25,9 +41,19 @@ body {
 
 }
 
+.check-form {
+    top: 329px;
+    left: 64px;
+    /* Heading */
+    font-size: 14px;
+    line-height: 22px;
+    color: #171A1FFF;
+    /* neutral-900 */
+}
+
 .line_left {
     position: absolute;
-    top: 338px;
+    top: 488px;
     left: 28px;
     width: 219px;
     height: 0px;
@@ -38,9 +64,28 @@ body {
     transform: rotate(0deg);
 }
 
+.button-loc {
+    position: absolute;
+    top: 371px;
+    left: 28px;
+    width: 482px;
+    height: 44px;
+}
+
+.account {
+    position: absolute;
+    top: 435px;
+    left: 156px;
+    /* Heading */
+    font-size: 14px;
+    line-height: 22px;
+    color: #171A1FFF;
+    /* neutral-900 */
+}
+
 .or {
     position: absolute;
-    top: 327px;
+    top: 477px;
     left: 259px;
     font-family: Open Sans;
     /* Body */
@@ -52,7 +97,7 @@ body {
 
 .line_right {
     position: absolute;
-    top: 338px;
+    top: 488px;
     left: 291px;
     width: 219px;
     height: 0px;
@@ -65,7 +110,7 @@ body {
 
 .Google {
     position: absolute;
-    top: 369px;
+    top: 519px;
     left: 181px;
     width: 48px;
     height: 48px;
@@ -82,128 +127,89 @@ body {
     gap: 0px;
 }
 
-.Google .icon {
-    width: 20px;
-    height: 20px;
-    fill: #FFFFFFFF;
-    /* white */
-}
-
-/* Hover */
-.Google:hover {
-    color: #FFFFFFFF;
-    /* white */
-    background: #A3120DFF;
-}
-
-/* Pressed */
-.Google:hover:active {
-    color: #FFFFFFFF;
-    /* white */
-    background: #7F0E0AFF;
-}
-
-/* Disabled */
-.Google:disabled {
-    opacity: 0.4;
-}
-
-.facebook {
+.btn-primary {
     position: absolute;
-    top: 369px;
-    left: 245px;
-    width: 48px;
-    height: 48px;
-    padding: 0 12px;
+    top: 200px;
+    left: 2.5px;
+    width: 482px;
+    height: 44px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Open Sans;
+    /* Body */
+    font-size: 16px;
+    line-height: 26px;
+    color: #FFFFFFFF;
+    /* white */
+    background: #262020FF;
+    /* primary-500 */
+    opacity: 1;
+    border: none;
+    border-radius: 4px;
+    /* border-m */
+}
+
+.form-group {
+    font-size: 14px;
+}
+
+.file {
+    /* position: absolute; */
+    top: 105px;
+    left: 435px;
+    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #FFFFFFFF;
     /* white */
-    background: #335CA6FF;
+    background: #262020FF;
+    /* primary-500 */
     opacity: 1;
     border: none;
-    border-radius: 24px;
+    border-radius: 4px;
+    /* border-m */
     gap: 0px;
 }
 
-.facebook .icon {
-    width: 20px;
-    height: 20px;
+.file .icon {
+    width: 16px;
+    height: 16px;
     fill: #FFFFFFFF;
     /* white */
 }
 
 /* Hover */
-.facebook:hover {
+.file:hover {
     color: #FFFFFFFF;
     /* white */
-    background: #2A4C89FF;
+    background: #443939FF;
+    /* primary-450 */
 }
 
 /* Pressed */
-.facebook:hover:active {
+.file :hover:active {
     color: #FFFFFFFF;
     /* white */
-    background: #213B6BFF;
+    background: #615151FF;
+    /* primary-400 */
 }
 
 /* Disabled */
-.facebook:disabled {
+.file :disabled {
     opacity: 0.4;
 }
 
-.Apple {
-    position: absolute;
-    top: 369px;
-    left: 309px;
-    width: 48px;
-    height: 48px;
-    padding: 0 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #FFFFFFFF;
-    /* white */
-    background: #171A1FFF;
-    /* neutral-900 */
-    opacity: 1;
-    border: none;
-    border-radius: 24px;
-    gap: 0px;
-}
+.form-control {
+    background-image: url("/Assets/Button 37.png");
+    background-repeat: no-repeat;
+    background-position: 100%;
+    height: 36px;
+    padding: 0 10px;
 
-.Apple .icon {
-    width: 20px;
-    height: 20px;
-    fill: #FFFFFFFF;
-    /* white */
-}
 
-/* Hover */
-.Apple:hover {
-    color: #FFFFFFFF;
-    /* white */
-    background: #262A33FF;
-    /* neutral-750 */
-}
-
-/* Pressed */
-.Apple:hover:active {
-    color: #FFFFFFFF;
-    /* white */
-    background: #323743FF;
-    /* neutral-700 */
-}
-
-/* Disabled */
-.Apple:disabled {
-    opacity: 0.4;
-}
-
-.form_Link {
-    color: black;
-    text-align: center;
 }
 
 .heading {
@@ -221,12 +227,6 @@ li a:hover {
 .text-size {
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
-}
-
-@media (max-width: 600px) {
-    body {
-        color: blue;
-    }
 }
 
 a:link {
@@ -247,6 +247,7 @@ a:hover {
     text-decoration: underline;
 }
 
+
 a:active {
     color: yellow;
     background-color: transparent;
@@ -254,11 +255,11 @@ a:active {
 }
 
 footer {
-    position: relative;
-    top: 500px;
+    position: absolute;
+    top: 902px;
     left: 0px;
-    max-width: 110%;
-    height: 486px;
+    width: 1440px;
+    height: 365px;
     background: #DEE1E6FF;
     /* neutral-300 */
     border-radius: 0px;
@@ -268,7 +269,7 @@ footer {
     text-align: left;
     margin-top: 96px;
     left: 153px;
-    width: 138px;
+    max-width: 138px;
     height: 68px;
     font-weight: bold;
     font-family: Montserrat;
@@ -316,4 +317,29 @@ footer {
     line-height: 26px;
     color: #171A1FFF;
     /* neutral-900 */
+}
+
+.upload-border {
+    border: 1px solid black;
+    width: 315px;
+}
+
+input[type=file]::-webkit-file-upload-button {
+    width: 0;
+    padding: 0;
+    margin: 0;
+    -webkit-appearance: none;
+    border: none;
+    border: 0px;
+}
+
+x::-webkit-file-upload-button,
+input[type=file]:after {
+    content: 'Browse...';
+    left: 100%;
+    margin-left: 3px;
+    position: relative;
+    -webkit-appearance: button;
+    padding: 3px 8px 2px;
+    border: 0px;
 }
