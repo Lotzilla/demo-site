@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <SchemaVersion>2.0</SchemaVersion>
+        <ProjectGuid>{54aaf73d-793e-4f3c-adf1-99cb3aca7bb1}</ProjectGuid>
+        <ProjectHome>.</ProjectHome>
+        <ProjectView>ShowAllFiles</ProjectView>
+        <StartupFile>index.js</StartupFile>
+        <WorkingDirectory>.</WorkingDirectory>
+        <OutputPath>.</OutputPath>
+        <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+        <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">17.0</VisualStudioVersion>
+        <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+    <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+    <ItemGroup>
+        <Content Include="package-lock.json" />
+        <Content Include="package.json" />
+        <Content Include="index.js" />
+        <Content Include="mongodb.js" />
+        <Content Include="Views\buy.ejs" />
+        <Content Include="Views\Compentency.ejs" />
+        <Content Include="Views\home.ejs" />
+        <Content Include="Views\Login.ejs" />
+        <Content Include="Views\Register.ejs" />
+        <Content Include="Views\rifle.ejs" />
+        <Content Include="Views\sellFirearm.ejs" />
+        <Content Include="Views\semi.ejs" />
+        <Content Include="Views\shotgun.ejs" />
+        <Content Include="Views\userProf.ejs" />
+        <Content Include="public\Assets\Divider 11.png" />
+        <Content Include="public\Assets\Divider 12.png" />
+        <Content Include="public\Assets\Divider 6.png" />
+        <Content Include="public\Assets\Divider 7.png" />
+        <Content Include="public\Assets\Group 38 (1).png" />
+        <Content Include="public\Assets\Group 6.png" />
+        <Content Include="public\Assets\Icon button 1.png" />
+        <Content Include="public\Assets\Icon button 2.png" />
+        <Content Include="public\Assets\Icon button 3.png" />
+        <Content Include="public\Assets\Icon button 4.png" />
+        <Content Include="public\Assets\Image 12.png" />
+        <Content Include="public\Assets\Image 20 (2).png" />
+        <Content Include="public\Assets\Image 20 (3).png" />
+        <Content Include="public\Assets\Image 25 (1).png" />
+        <Content Include="public\Assets\Img1.PNG" />
+        <Content Include="public\Assets\Rectangle 3.png" />
+        <Content Include="public\Javascript\home.js" />
+        <Content Include="public\Javascript\login.js" />
+        <Content Include="public\Javascript\register.js" />
+        <Content Include="public\stylesheets\buy.css" />
+        <Content Include="public\stylesheets\home.css" />
+        <Content Include="public\stylesheets\Login.css" />
+        <Content Include="public\stylesheets\register.css" />
+        <Content Include="public\stylesheets\rifle.css" />
+        <Content Include="public\stylesheets\semi.css" />
+        <Content Include="public\stylesheets\shotgun.css" />
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="bin" />
+        <Folder Include="public" />
+        <Folder Include="public\Assets" />
+        <Folder Include="public\Javascript" />
+        <Folder Include="public\stylesheets" />
+        <Folder Include="Publish" />
+        <Folder Include="Publish\Publish" />
+        <Folder Include="Views" />
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
+    <ProjectExtensions>
+        <VisualStudio>
+          <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+            <WebProjectProperties>
+              <UseIIS>False</UseIIS>
+              <AutoAssignPort>True</AutoAssignPort>
+              <DevelopmentServerPort>0</DevelopmentServerPort>
+              <DevelopmentServerVPath>/</DevelopmentServerVPath>
+              <IISUrl>http://localhost:48022/</IISUrl>
+              <NTLMAuthentication>False</NTLMAuthentication>
+              <UseCustomServer>True</UseCustomServer>
+              <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+              <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+            </WebProjectProperties>
+          </FlavorProperties>
+          <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+            <WebProjectProperties>
+              <StartPageUrl>
+              </StartPageUrl>
+              <StartAction>CurrentPage</StartAction>
+              <AspNetDebugging>True</AspNetDebugging>
+              <SilverlightDebugging>False</SilverlightDebugging>
+              <NativeDebugging>False</NativeDebugging>
+              <SQLDebugging>False</SQLDebugging>
+              <ExternalProgram>
+              </ExternalProgram>
+              <StartExternalURL>
+              </StartExternalURL>
+              <StartCmdLineArguments>
+              </StartCmdLineArguments>
+              <StartWorkingDirectory>
+              </StartWorkingDirectory>
+              <EnableENC>False</EnableENC>
+              <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+            </WebProjectProperties>
+          </FlavorProperties>
+        </VisualStudio>
+    </ProjectExtensions>
+</Project>

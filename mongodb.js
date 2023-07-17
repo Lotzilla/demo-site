@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const passportLocalMongoose = require("passport-local-mongoose");
 const Schema = mongoose.Schema;
 
-
 mongoose.set('strictQuery', false)
 // Connects to the mongoDB server.
 mongoose.connect("mongodb://localhost:27017/Project-Gun(Autotrader")
@@ -33,17 +32,10 @@ const LogInSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
-
-
-    // confirmPassword: {
-    //     type: String,
-    //     required: true,
-    //     unique: true,
-    //     trim: true
-    // },
-    // salt: String,
+    img: {
+        type: String,
+    }
 }, { timestamps: true })
-
 
 const collection = mongoose.model("LogInCollection", LogInSchema);
 

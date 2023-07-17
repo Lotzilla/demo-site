@@ -1,18 +1,44 @@
+
+const imgSchema = require("./imagedb")
 const collection = require("./mongodb");
 const mongoose = require('mongoose')
 const express = require('express');
 const cookieParser = require("cookie-parser");
 const sessions = require("express-session");
-var serveStatic = require('serve-static')
-const memorystore = require('memorystore')(sessions)
-const app = express();
-module.exports = {
-    mode: 'development',
-};
+const path = require('path');
+const fileUpload = require("express-fileupload");
+const fs = require('fs');
 
-// Body- parser helps you access req.body from within routes and will use that data.
-// const bodyParser = require("body-Parser")
-const path = require("path");                                                       // It helps you work with directories and file path,
+const router = express.Router();
+require('dotenv').config();
+
+const app = express();
+app.use(express.json());
+
+var multer = require('multer');
+
+var storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'uploads')
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.fieldname + '-' + Date.now())
+    }
+});
+
+var upload = multer({ storage: storage });
+
+app.get('/', (req, res) => {
+    imgSchema.find({})
+        .then((data, err) => {
+            if (err) {
+                console.log(err);
+            }
+            res.render('home', { items: data })
+        })
+});
+
+// Body- parser helps you access req.body from within routes and will use that data.                                                 /
 const ejs = require("ejs");
 const { check, validationResult } = require("express-validator");
 const { values, isLength, get, find, result } = require("lodash");
@@ -20,14 +46,15 @@ const { values, isLength, get, find, result } = require("lodash");
 // Helps you connect to the file path Views. 
 const tempelatePath = path.join(__dirname, 'Views');
 // const urlencodedParser = bodyParser.urlencoded({ extended: true });            // Parsing Incoming Data.
-app.use(express.json());
 app.use(express.urlencoded({ extended: false }))
 app.set('view engine', 'ejs')
 // Without this we cannot access the files in Views.
-app.set("Views", path.join(__dirname, '../Views'));
+app.set("Views", path.join(__dirname, '/Views'));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")))                     // Telling express that the public dir has all of our assets.   
+app.use(express.static(path.join(__dirname, "public")))                   // Telling express that the public dir has all of our assets.   
 
+
+const memorystore = require('memorystore')(sessions)
 const oneDay = 1000 * 60 * 60 * 24;
 app.use(sessions({
     cookie: { maxAge: 86400000 },
@@ -48,68 +75,6 @@ app.get('/', (req, res) => {
 app.get('/login', (req, res) => {
     res.render("login");
 });
-// Directs you to the /register page. 
-app.get('/register', (req, res) => {
-    res.render("register");
-});
-//Buy Firearm page
-app.get('/buy', (req, res) => {
-    res.render("buy");
-});
-app.get('/rifle', (req, res) => {
-    res.render('rifle');
-});
-app.get('/shotgun', (req, res) => {
-    res.render('shotgun');
-});
-app.get('/semi', (req, res) => {
-    res.render('semi');
-});
-//Sell Firearm page
-app.get('/sell', (req, res) => {
-    res.render("sell")
-});
-//Get compentency page
-app.get('/compentency', (req, res) => {
-    res.render("compentency")
-});
-// The code that allows you to register a persons details and the saves the data to mongoDB.
-app.post("/register", [
-    check('name', 'The name must be 3+ characters long')
-        .exists()
-        .isLength({ min: 3 }),
-    check('email', "Email is not valid")
-        .isEmail()
-        .normalizeEmail(),
-    check('password', "Password needs to be 6 or more characters")
-        .isLength({ min: 6 }),
-], async (req, res) => {
-    // This is the data that will go into our database.
-    let data = {
-        name: req.body.name,
-        email: req.body.email,
-        password: req.body.password,
-        // confirmPassword: req.body.confirmPassword
-    };
-    // Checks if all fields are correct.
-    const error = validationResult(req)
-    // console.log(error);
-    // console.log(data.password);
-    // console.log(data.confirmPassword);
-    if (error.isEmpty()) {
-        await collection.insertMany([data]),
-            res.render('home');
-    }
-    // If there are errors in the input fields will result in error message that will pop up.
-    else {
-        //return res.status(422).json(error.array())            //Checks the server side of what is needed to be put into the database (requirements).
-        const alert = error.array()
-        res.render("register", {
-            alert,
-        });
-    }
-});
-
 // Can login with the registered users data that is in the database.
 app.post("/login", async (req, res) => {
 
@@ -132,6 +97,47 @@ app.post("/login", async (req, res) => {
         res.send('User does not exist');
     }
 });
+// Directs you to the /register page. 
+app.get('/register', (req, res) => {
+    res.render("register");
+});
+
+// The code that allows you to register a persons details and the saves the data to mongoDB.
+app.post("/register", [
+    check('name', 'The name must be 3+ characters long')
+        .exists()
+        .isLength({ min: 3 }),
+    check('email', "Email is not valid")
+        .isEmail()
+        .normalizeEmail(),
+    check('password', "Password needs to be 6 or more characters")
+        .isLength({ min: 6 }),
+], async (req, res) => {
+    // This is the data that will go into our database.
+    let data = new User({
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password,
+        // confirmPassword: req.body.confirmPassword
+    });
+    // Checks if all fields are correct.
+    const error = validationResult(req)
+    // console.log(error);
+    // console.log(data.password);
+    // console.log(data.confirmPassword);
+    if (error.isEmpty()) {
+        await collection.insertMany([data]),
+            res.render('home');
+    }
+    // If there are errors in the input fields will result in error message that will pop up.
+    else {
+        //return res.status(422).json(error.array())            //Checks the server side of what is needed to be put into the database (requirements).
+        const alert = error.array()
+        res.render("register", {
+            alert,
+        });
+    }
+});
 
 app.get('/userProf', (req, res) => {
     session = req.session;
@@ -140,7 +146,6 @@ app.get('/userProf', (req, res) => {
     }
 })
 
-
 app.get("/logout", (req, res) => {
     req.session.destroy();
     res.redirect("/");
@@ -148,11 +153,72 @@ app.get("/logout", (req, res) => {
 
 })
 
-const http = require('https');
-const index = require('./index')
+//Buy Firearm page
+app.get('/buy', (req, res) => {
+    res.render("buy");
+});
 
-const port = process.env.PORT || 8080;
+//Sell Firearm page
+app.get('/sell', (req, res) => {
+    res.render("sell")
+});
+
+app.post('/sell', upload.array('image', 3), (req, res, next) => {
+
+    const obj = {
+        name: req.body.name,
+        desc: req.body.desc,
+        img: {
+            data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
+            contentType: 'image/png',
+            path: file.path,
+            owner: req.user.userId,
+        }
+    }
+    imgSchema.create(obj)
+        .then((err, item) => {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                // item.save();
+                res.redirect('home');
+            }
+        });
+});
+
+
+//Rifles, shotguns and semi-atuo pages for selling firearms
+app.get('/rifle', (req, res) => {
+    res.render('rifle');
+});
+app.get('/shotgun', (req, res) => {
+    res.render('shotgun');
+});
+app.get('/semi', (req, res) => {
+    res.render('semi');
+});
+//Get compentency page
+app.get('/compentency', (req, res) => {
+    res.render("compentency")
+});
+app.get('/buysell', (req, res) => {
+    res.render("buysell")
+});
+app.get('/resellsignup', (req, res) => {
+    res.render("resellsignup")
+});
+app.get('/resellogin', (req, res) => {
+    res.render("resellogin")
+});
+app.get('/sell', (req, res) => {
+    res.render("sell")
+});
+const http = require('https');
+const index = require('./index');
+
+const PORT = process.env.PORT || 8080;
 const server = http.createServer(index);
 
 // The port to connect to https://localhost:8080.
-app.listen(8080)
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
