@@ -45,13 +45,17 @@ const { values, isLength, get, find, result } = require("lodash");
 
 // Helps you connect to the file path Views. 
 const tempelatePath = path.join(__dirname, 'Views');
-// const urlencodedParser = bodyParser.urlencoded({ extended: true });            // Parsing Incoming Data.
+// const urlencodedParser = bodyParser.urlencoded({ extended: true });     
+// Parsing Incoming Data.      
 app.use(express.urlencoded({ extended: false }))
 app.set('view engine', 'ejs')
+
+
 // Without this we cannot access the files in Views.
+// Telling express that the public dir has all of our assets. 
 app.set("Views", path.join(__dirname, '/Views'));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")))                   // Telling express that the public dir has all of our assets.   
+app.use(express.static(path.join(__dirname, "public")))
 
 
 const memorystore = require('memorystore')(sessions)
@@ -114,7 +118,7 @@ app.post("/register", [
         .isLength({ min: 6 }),
 ], async (req, res) => {
     // This is the data that will go into our database.
-    let data = new User({
+    let data = ({
         name: req.body.name,
         email: req.body.email,
         password: req.body.password,
@@ -140,10 +144,18 @@ app.post("/register", [
 });
 
 app.get('/userProf', (req, res) => {
-    session = req.session;
-    if (session.userid) {
-        res.render("userProf")
-    }
+    res.render("userProf")
+
+})
+
+app.get('/editProf', (req, res) => {
+    res.render('editProf')
+})
+app.get('/List', (req, res) => {
+    res.render('List')
+})
+app.get('/singlelist', (req, res) => {
+    res.render('singlelist')
 })
 
 app.get("/logout", (req, res) => {
@@ -152,7 +164,6 @@ app.get("/logout", (req, res) => {
     console.log("Session is destroyed")
 
 })
-
 //Buy Firearm page
 app.get('/buy', (req, res) => {
     res.render("buy");

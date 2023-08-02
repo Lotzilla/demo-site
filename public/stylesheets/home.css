@@ -42,7 +42,7 @@ body {
     background: #DEE1E6FF;
     box-shadow: 0px 4px 9px #171a1f, 0px 0px 2px #171a1f;
     margin: 0px;
-    border-radius: 6px 0px 0px 0px;
+    border-radius: 6px 0px 6px 0px;
 }
 
 /* .handgun-home {
@@ -67,7 +67,7 @@ body {
 .search {
     position: absolute;
     top: 180px;
-    left: 16px;
+    left: 9px;
     font-family: Open Sans;
     /* Body */
     font-size: 14px;
@@ -98,8 +98,8 @@ body {
 
 .Handguns {
     position: absolute;
-    top: -1px;
-    left: -1px;
+    top: 0%;
+    left: 0px;
     width: 218.25px;
     height: 41px;
     background: #DEE1E6FF;
@@ -107,12 +107,13 @@ body {
     border-radius: 6px 0px 0px 0px;
     /* border-tl-l */
     font-size: 14px;
+    border: none;
 }
 
 .Hunting {
     position: absolute;
     color: white;
-    top: -1px;
+    top: 0px;
     left: 215px;
     width: 218.25px;
     height: 41px;
@@ -123,13 +124,14 @@ body {
     content: "";
     clear: both;
     display: table;
+    border: none;
 }
 
 .Shotguns {
     position: absolute;
     display: table;
     color: white;
-    top: -1px;
+    top: 0px;
     left: 433px;
     width: 218.25px;
     height: 41px;
@@ -137,6 +139,7 @@ body {
     /* neutral-800 */
     border-radius: 0px;
     font-size: 14px;
+    border: none;
 }
 
 .Semi {
@@ -144,7 +147,7 @@ body {
     display: table;
     color: white;
     position: absolute;
-    top: -1px;
+    top: 0px;
     left: 651px;
     width: 218.25px;
     height: 41px;
@@ -153,12 +156,13 @@ body {
     border-radius: 0px 6px 0px 0px;
     /* border-tr-none */
     font-size: 14px;
+    border: none;
 }
 
 .head-text {
     position: absolute;
     top: 67px;
-    left: 260px;
+    left: 255px;
     font-family: Montserrat;
     /* Heading */
     font-size: 24px;
@@ -207,6 +211,7 @@ border-radius: 4px; */
 }
 
 .third-row {
+    padding: 75px;
     top: 875px;
     left: 0px;
     width: 100%;
@@ -220,7 +225,6 @@ border-radius: 4px; */
     height: 100px;
     text-align: center;
 }
-
 
 .fourthrow {
     margin: 50px;
